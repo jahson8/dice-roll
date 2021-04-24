@@ -1,0 +1,36 @@
+.dice {
+  &-dp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+
+  &-dp > * {
+    margin: 1em;
+    max-width: calc(30% - 2em);
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  &-dp > *:nth-child(3) {
+    align-self: flex-start;
+  }
+
+  @media (min-width: $large) {
+    &-dp {
+      flex-wrap: nowrap;
+    }
+
+    &-dp > * {
+      width: 100%;
+      max-width: calc(18% - 2em);
+    }
+
+    &-dp > *:last-child {
+      margin-right: 0;
+    }
+  }
+}

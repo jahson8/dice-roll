@@ -1,0 +1,30 @@
+// Font Stack
+$font-url--google1: "https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap";
+$font-url--google2: "https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap";
+
+$font-family--secondary: "Fredoka One", cursive;
+$font-family--primary: "Lora", serif;
+
+// Font Weights
+$font-weight--normal: 400;
+$font-weight--bold: 700;
+
+// Descriptive Base Colors
+$white: #fff;
+$black: #0b0b0b;
+$gray: #edeff0;
+
+$color-prim: #6f1f63;
+
+// Line-height
+$line-height: 1.5;
+
+// border-radius
+$br: 0.3125em;
+
+// Box-shadow
+$box-shadow: 0 2px 0 rgba(0, 0, 0, 6%);
+
+// Break points
+$med: 768px;
+$large: 1024px;

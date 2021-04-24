@@ -1,0 +1,9 @@
+.site-footer {
+  background-color: $color-prim;
+  padding: 1em;
+  text-align: center;
+  &,
+  a {
+    color: $white;
+  }
+}

@@ -1,0 +1,28 @@
+.selection {
+  &-form label {
+    font-size: 1.3rem;
+  }
+
+  &-form input {
+    display: block;
+    padding: 12px;
+    border-radius: $br;
+    margin: 1em 0;
+    width: 100%;
+    font-size: 1.2rem;
+    &:focus {
+      outline: 3px solid $color-prim;
+    }
+  }
+
+  .warning {
+    color: red;
+    font-size: 1.3rem;
+    display: none;
+  }
+
+  &-form label,
+  .warning {
+    font-weight: $font-weight--bold;
+  }
+}

@@ -1,0 +1,43 @@
+.container {
+  padding: 0 1em;
+
+  @media (min-width: $med) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
+
+    & > * {
+      margin-right: 1em;
+      width: calc(50% - 1em);
+    }
+
+    & > *:nth-child(4) {
+      max-height: 434px;
+      overflow-y: auto;
+    }
+  }
+
+  @media (min-width: $large) {
+    padding: 0;
+    max-width: 1200px;
+    & > *:first-child {
+      width: calc(40% - 1em);
+    }
+
+    & > *:nth-child(2) {
+      width: calc(60% - 1em);
+    }
+
+    & > *:nth-child(3),
+    & > *:nth-child(4) {
+      width: calc(50% - 1em);
+    }
+  }
+}
+
+.card {
+  background-color: $white;
+  border-radius: $br;
+  box-shadow: $box-shadow;
+}

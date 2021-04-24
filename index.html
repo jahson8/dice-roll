@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Dice</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-intro">
+        <h1 class="title">Dice</h1>
+        <p>Generate and roll up to 6 virtual die.</p>
+      </div>
+    </header>
+    <main class="container">
+      <!-- Die Selection -->
+      <section class="card selection">
+        <h2>Select the Number of Dice</h2>
+        <form class="selection-form">
+          <label for="die-num">Number of Dice:</label>
+          <input type="number" id="die-num" min="1" max="6" value="1" />
+          <p class="warning">
+            Please Enter a value no less than 1 and no more than 6.
+          </p>
+          <button class="btn" id="create-die">Create Dice</button>
+        </form>
+      </section>
+
+      <!-- Die Display -->
+      <section class="card">
+        <h2>Dice Roll</h2>
+        <div class="dice-dp">
+          <img src="img/dice-1.svg" alt="die face 1" class="die" />
+        </div>
+        <div id="message"></div>
+        <button class="btn" id="dieRoll">Roll Dice</button>
+      </section>
+
+      <!-- Result of the current Die roll -->
+      <section class="roll-current card">
+        <h2>Roll Summary</h2>
+        <div class="roll-div">
+          <ul class="roll-message"></ul>
+          <p><span>Roll total:</span> <span id="total">0</span></p>
+        </div>
+      </section>
+
+      <!-- History of the last five die rolls -->
+      <section class="card">
+        <h2>Roll History</h2>
+        <ol id="history" reversed>
+          <li>
+            <p><span>result:</span> (3,3,3,3,3)</p>
+            <p><span>Sum:</span> 15</p>
+          </li>
+          <li>
+            <p><span>result:</span> (3,3,3,3,3)</p>
+            <p><span>Sum:</span> 15</p>
+          </li>
+          <li>
+            <p><span>result:</span> (3,3,3,3,3)</p>
+            <p><span>Sum:</span> 15</p>
+          </li>
+          <li>
+            <p><span>result:</span> (3,3,3,3,3)</p>
+            <p><span>Sum:</span> 15</p>
+          </li>
+          <li>
+            <p><span>result:</span> (3,3,3,3,3)</p>
+            <p><span>Sum:</span> 15</p>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>&copy;Jason Miller</p>
+      <p>
+        Icons made by
+        <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+        <a href="https://www.flaticon.com/" title="Flaticon"
+          >www.flaticon.com</a
+        >
+      </p>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>

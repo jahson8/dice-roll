@@ -1,0 +1,16 @@
+/* Dice Rolling Animation*/
+
+.roll {
+  animation: rotation 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1440deg);
+  }
+}

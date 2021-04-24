@@ -1,0 +1,20 @@
+#history {
+  list-style-type: decimal;
+
+  li {
+    border-bottom: 1px solid black;
+    font-size: 1.1rem;
+  }
+
+  li:first-child {
+    border-top: 1px solid black;
+  }
+
+  li:last-child {
+    border: none;
+  }
+
+  li span {
+    font-weight: $font-weight--bold;
+  }
+}

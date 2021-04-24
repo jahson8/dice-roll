@@ -1,0 +1,21 @@
+.roll {
+  &-current {
+    text-align: center;
+  }
+
+  &-div p span,
+  &-message li span {
+    font-weight: $font-weight--bold;
+  }
+  &-div p,
+  &-message li {
+    margin-bottom: 0.6em;
+    font-size: 1.2rem;
+  }
+
+  &-message li:last-of-type {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+  }
+}
