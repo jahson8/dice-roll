@@ -3,16 +3,29 @@ const dieInput = document.getElementById("die-num");
 const createDieBtn = document.getElementById("create-die");
 const diceForm = document.querySelector(".selection-form");
 const rollDice = document.getElementById("dieRoll");
+let totVal = 0;
+let firstRoll = true;
 
 // Helper Functions
 
 // Dice HTML
 const generateDiceHtml = (num) => {
-  return `<img src="img/dice-${num}.svg" alt="dice face ${num}" class="die" />`;
+  return `<img src="img/dice-${num}.svg" alt="dice face ${num}" class="die"  data-value="${num}"/>`;
 };
 
+// Generates Roll Summary HTML
 const rollSummaryHtml = (rollValue, idx) => {
   return `<li><span>Die ${idx + 1}:</span> ${rollValue}</li>`;
+};
+
+const updateRollHistory = (dice) => {
+  let history = "( ";
+  dice.forEach((die) => {
+    history += die.dataset.value;
+    history += " ";
+  });
+  history += ")";
+  console.log(history);
 };
 
 // Event Handlers
@@ -43,9 +56,13 @@ const displayDice = (evt) => {
 const handleDiceRoll = () => {
   const dice = document.querySelectorAll(".die");
   const total = document.getElementById("total");
-  const summUl = document.querySelector(".roll-message");
+  const summaryUl = document.querySelector(".roll-message");
   let msg = "";
-  let totVal = 0;
+
+  // updates roll history if not the initial dice roll
+  if (!firstRoll) {
+    updateRollHistory(dice);
+  }
 
   dice.forEach((die, idx) => {
     let rollValue = Math.floor(Math.random() * 6) + 1;
@@ -54,6 +71,7 @@ const handleDiceRoll = () => {
     // updates Dice Display
     die.src = `img/dice-${rollValue}.svg`;
     die.alt = `dice face ${rollValue}`;
+    die.dataset.value = rollValue;
     die.classList.add("roll");
 
     setTimeout(() => {
@@ -62,9 +80,9 @@ const handleDiceRoll = () => {
 
       // updates Roll Summary Widget
       msg += rollSummaryHtml(rollValue, idx);
-      summUl.innerHTML = msg;
+      summaryUl.innerHTML = msg;
       total.innerHTML = totVal;
-      console.log(totVal);
+      firstRoll = false;
     }, 1000);
   });
 };
