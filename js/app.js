@@ -3,7 +3,6 @@ const dieInput = document.getElementById("die-num");
 const createDieBtn = document.getElementById("create-die");
 const diceForm = document.querySelector(".selection-form");
 const rollDice = document.getElementById("dieRoll");
-let totVal = 0;
 let firstRoll = true;
 
 // Helper Functions
@@ -57,6 +56,7 @@ const handleDiceRoll = () => {
   const dice = document.querySelectorAll(".die");
   const total = document.getElementById("total");
   const summaryUl = document.querySelector(".roll-message");
+  let totVal = 0;
   let msg = "";
 
   // updates roll history if not the initial dice roll
