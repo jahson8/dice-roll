@@ -41,7 +41,6 @@ const updateRollHistory = () => {
 const displayDice = (evt) => {
   let numDie = dieInput.value;
   const diceDisp = document.querySelector(".dice-dp");
-  const warning = document.querySelector(".warning");
   let diceHtml = "";
 
   // Stop Form  Submitting
@@ -51,7 +50,6 @@ const displayDice = (evt) => {
   for (let i = 1; i <= numDie; i++) {
     diceHtml += generateDiceHtml(i);
   }
-
   diceDisp.innerHTML = diceHtml;
 };
 

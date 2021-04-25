@@ -354,19 +354,22 @@ ul {
     background-color: #fff; }
 
 .container {
-  padding: 0 1em; }
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column; }
+  .container > *:nth-child(4) {
+    max-height: 434px;
+    overflow-y: auto; }
   @media (min-width: 768px) {
     .container {
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
       width: 85%;
       margin: 0 auto; }
       .container > * {
         margin-right: 1em;
-        width: calc(50% - 1em); }
-      .container > *:nth-child(4) {
-        max-height: 434px;
-        overflow-y: auto; } }
+        width: calc(50% - 1em); } }
   @media (min-width: 1024px) {
     .container {
       padding: 0;
