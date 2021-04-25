@@ -405,12 +405,7 @@ ul {
   font-size: 1.2rem; }
   .selection-form input:focus {
     outline: 3px solid #6f1f63; }
-.selection .warning {
-  color: red;
-  font-size: 1.3rem;
-  display: none; }
-.selection-form label,
-.selection .warning {
+.selection-form label {
   font-weight: 700; }
 
 .dice-dp {
@@ -447,8 +442,6 @@ ul {
     transform: rotate(1440deg); } }
 .roll-current {
   text-align: center; }
-.roll-div p span, .roll-message li span {
-  font-weight: 700; }
 .roll-div p, .roll-message li {
   margin-bottom: 0.6em;
   font-size: 1.2rem; }
@@ -456,6 +449,10 @@ ul {
   border-bottom: 1px solid black;
   padding-bottom: 1em;
   margin-bottom: 1em; }
+
+#total,
+.roll-value {
+  font-weight: 700; }
 
 #history {
   list-style-type: decimal; }

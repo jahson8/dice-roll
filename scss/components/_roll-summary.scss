@@ -3,10 +3,6 @@
     text-align: center;
   }
 
-  &-div p span,
-  &-message li span {
-    font-weight: $font-weight--bold;
-  }
   &-div p,
   &-message li {
     margin-bottom: 0.6em;
@@ -18,4 +14,9 @@
     padding-bottom: 1em;
     margin-bottom: 1em;
   }
+}
+
+#total,
+.roll-value {
+  font-weight: $font-weight--bold;
 }

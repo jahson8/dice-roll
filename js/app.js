@@ -9,22 +9,31 @@ let firstRoll = true;
 
 // Dice HTML
 const generateDiceHtml = (num) => {
-  return `<img src="img/dice-${num}.svg" alt="dice face ${num}" class="die"  data-value="${num}"/>`;
+  return `<img src="img/dice-${num}.svg" alt="dice face ${num}" class="die" />`;
 };
 
 // Generates Roll Summary HTML
 const rollSummaryHtml = (rollValue, idx) => {
-  return `<li><span>Die ${idx + 1}:</span> ${rollValue}</li>`;
+  return `<li>Die <span class="die-value">${
+    idx + 1
+  } :</span > <span class="roll-value">${rollValue}</span> </li>`;
 };
 
-const updateRollHistory = (dice) => {
-  let history = "( ";
-  dice.forEach((die) => {
-    history += die.dataset.value;
-    history += " ";
+const updateRollHistory = () => {
+  let rolls = document.querySelectorAll(".roll-value");
+  let histOl = document.querySelector("#history");
+  let histLi = document.createElement("li");
+  let output = "( ";
+  let total = document.querySelector("#total").textContent;
+  rolls.forEach((roll) => {
+    output += ` ${roll.textContent},  `;
   });
-  history += ")";
-  console.log(history);
+  output += ") ";
+  histLi.innerHTML = `
+  <p>result: <span>${output}</span></p>
+  <p>Sum: <span>${total}</span></p>
+`;
+  histOl.prepend(histLi);
 };
 
 // Event Handlers
@@ -39,19 +48,14 @@ const displayDice = (evt) => {
   evt.preventDefault();
 
   // Generates the number of dice selected by user on screen
-  if (numDie > 6 || numDie < 1) {
-    warning.style.display = "block";
-    diceHtml = generateDiceHtml(1);
-  } else {
-    for (let i = 1; i <= numDie; i++) {
-      warning.style.display = "none";
-      diceHtml += generateDiceHtml(i);
-    }
+  for (let i = 1; i <= numDie; i++) {
+    diceHtml += generateDiceHtml(i);
   }
+
   diceDisp.innerHTML = diceHtml;
 };
 
-//handles the roll Dice and roll summary functionality
+//handles the roll Dice event updates roll summary and roll history widgets
 const handleDiceRoll = () => {
   const dice = document.querySelectorAll(".die");
   const total = document.getElementById("total");
@@ -59,9 +63,9 @@ const handleDiceRoll = () => {
   let totVal = 0;
   let msg = "";
 
-  // updates roll history if not the initial dice roll
+  // updates roll history if it isnt the first dice roll
   if (!firstRoll) {
-    updateRollHistory(dice);
+    updateRollHistory();
   }
 
   dice.forEach((die, idx) => {
@@ -82,9 +86,10 @@ const handleDiceRoll = () => {
       msg += rollSummaryHtml(rollValue, idx);
       summaryUl.innerHTML = msg;
       total.innerHTML = totVal;
-      firstRoll = false;
     }, 1000);
   });
+
+  firstRoll = false;
 };
 
 // Event Listeners
