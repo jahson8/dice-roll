@@ -19,6 +19,7 @@ const rollSummaryHtml = (rollValue, idx) => {
   } :</span > <span class="roll-value">${rollValue}</span> </li>`;
 };
 
+// Updates the roll history Ol
 const updateRollHistory = () => {
   let rolls = document.querySelectorAll(".roll-value");
   let histOl = document.querySelector("#history");
@@ -37,6 +38,7 @@ const updateRollHistory = () => {
 };
 
 // Event Handlers
+
 //  Display Dice on the screen
 const displayDice = (evt) => {
   let numDie = dieInput.value;
@@ -53,7 +55,7 @@ const displayDice = (evt) => {
   diceDisp.innerHTML = diceHtml;
 };
 
-//handles the roll Dice event updates roll summary and roll history widgets
+//handles the roll Dice event; updates roll summary and roll history widgets
 const handleDiceRoll = () => {
   const dice = document.querySelectorAll(".die");
   const total = document.getElementById("total");
@@ -73,9 +75,9 @@ const handleDiceRoll = () => {
     // updates Dice Display
     die.src = `img/dice-${rollValue}.svg`;
     die.alt = `dice face ${rollValue}`;
-    die.dataset.value = rollValue;
     die.classList.add("roll");
 
+    // Allows a 1 second delay before updating roll Summary widget
     setTimeout(() => {
       // remove roll class to stop spinning animation
       die.classList.remove("roll");
